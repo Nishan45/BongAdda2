@@ -47,6 +47,7 @@ All buttons are in `Bengali` language.
 * There are 4 categories `Short Story` `Poem` `Jokes` `Images`.
 * A search button at the top to search users.
 
-![WhatsApp Image 2024-02-19 at 00 57 39_9d09eb37](https://github.com/Nishan45/BongAdda2/assets/114748319/06a7bae8-578f-487a-a740-32df1633d4b7)
+
+<img src="https://github.com/Nishan45/BongAdda2/assets/114748319/06a7bae8-578f-487a-a740-32df1633d4b7" width="200">
 
 
