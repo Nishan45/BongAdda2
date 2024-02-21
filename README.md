@@ -13,7 +13,10 @@ It is a MERN Stack App
 * MongoDb
 * Express Js
 * Node Js
+* Used <a href="https://cloudinary.com/documentation">Cloudinary</a> to store and retrieve images
 
+# Project Setup
+* Download Node Js. <a href="https://nodejs.org/en/download"> Website link</a>
 
 
 
