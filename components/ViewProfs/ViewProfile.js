@@ -12,6 +12,7 @@ import { Entypo } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import alert from '../../alert';
 import { useTranslation } from 'react-i18next';
+import { Platform } from 'react-native';
 
 const url = SERVER_LINK + "/get_user_info";
 const urlp = SERVER_LINK + "/get_posts_count"
@@ -160,7 +161,7 @@ function ViewProfile({ uri, diameter, email, margin, nopost }) {
                       }
                     </View>
                     <View style={{ margin: '2%', width: '40%' }}>
-                      {windowWidth >= 700 ?
+                      {windowWidth >= 700 ||Platform.OS=='web' ?
                         <Button title={t("Post")} onPress={() => { close(); navigation.navigate('ViewUserPost', { email: email, name: data.name }) }} />
                         : (!nopost ? <ViewPosts email={email} /> : <Button title={t("Post")} onPress={() => navigation.navigate('ViewUserPost', { email: email, name: data.name })} />
                         )}
