@@ -1,16 +1,13 @@
 {
-    "version": 2,
-    "builds": [
-     {
-      "src": "App.js",
-      "use": "@vercel/node",
-      "config": { "includeFiles": ["dist/**"] }
-     }
-    ],
-    "routes": [
-     {
-      "src": "/(.*)",
-      "dest": "/"
-     }
+    "buildCommand": "expo export -p web",
+    "outputDirectory": "dist",
+    "devCommand": "expo",
+    "cleanUrls": true,
+    "framework": null,
+    "rewrites": [
+      {
+        "source": "/:path*",
+        "destination": "/"
+      }
     ]
-   }
+  }
