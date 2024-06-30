@@ -19,7 +19,7 @@
       "bundleIdentifier": "com.iman0101.BongAdda1"
     },
     "androidStatusBar": {
-      "backgroundColor":"#0096FF"
+      "backgroundColor": "#0096FF"
     },
     "android": {
       "adaptiveIcon": {
@@ -40,7 +40,8 @@
         {
           "photosPermission": "The app accesses your photos to let you share them with your friends."
         }
-      ]
+      ],
+      "expo-router"
     ],
     "extra": {
       "eas": {

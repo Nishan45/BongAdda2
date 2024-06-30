@@ -2,6 +2,7 @@
 const apiUrl = 'https://api.cloudinary.com/v1_1/dzwpvhtx5/image/upload';
 const upload_preset='jiyvlhem';
 
+
 export default upload_cloud=async (result)=>{
     const name=result.assets[0].uri.split('/').pop();
     const type=name.split('.').pop();

@@ -1,15 +1,14 @@
-import { View, Text } from 'react-native'
+import { View, Text, useWindowDimensions } from 'react-native'
 import React, { useState } from 'react'
 
-import { Button } from 'react-native';
-import { Modal } from 'react-native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import ViewImages from './ViewImages';
-import ViewStories from './ViewStories';
-import ViewPoems from './ViewPoems';
-import ViewJokes from './ViewJokes';
-import { AntDesign } from '@expo/vector-icons';
+import ViewImages from '../ViewProfs/ViewImages';
+import ViewStories from '../ViewProfs/ViewStories';
+import ViewJokes from '../ViewProfs/ViewJokes';
+import ViewPoems from '../ViewProfs/ViewPoems';
+import DropBar from './DropBar';
 import { useTranslation } from 'react-i18next';
+
 
 const Tab2 = createMaterialTopTabNavigator();
 
@@ -26,8 +25,8 @@ const Tabs = ({email}) => {
     const Poems = () => (
         <ViewPoems email={email} />
     )
+    const {t}=useTranslation()
 
-    const{t}=useTranslation()
     return (
         
         <Tab2.Navigator
@@ -70,35 +69,23 @@ const Tabs = ({email}) => {
     )
 }
 
-export default function ViewPosts({ email }) {
-    const [show, setShow] = useState(false)
-    const close = () => {
-        setShow(false)
-    }
-
+export default function ViewUserPost({navigation,route}) {
+    const{width,height}=useWindowDimensions();
 
     return (
-        <View>
-
-            <Button title='পোস্ট' onPress={() => { setShow(true) }} />
-            <Modal
-                animationType={'fade'}
-                transparent={true}
-                visible={show}
-                onRequestClose={close}
-                
-
-            >
-                <View style={{flex:1,backgroundColor: "white" }}>
-                    <View style={{ flexDirection: "row", alignItems: "center" }} >
-                        <AntDesign name="arrowleft" size={24} color="black" style={{ margin: 10, marginLeft: 20 }} onPress={() => { setShow(false) }} />
-                        <Text style={{ fontSize: 18 }}>Back</Text>
-                    </View>
-
-                    <Tabs email={email}/>
-
-                </View>
-            </Modal>
+        
+        <View style={{flex:1,flexDirection:'row',width:'100%'
+        }}>
+          {width>=700?<View style={{width:'15%'}}>
+            <DropBar screen={'home'}/>
+          </View>:null}
+          <View style={{flex:1,backgroundColor: "white" }}>
+            {route.params?
+            <Tabs email={route.params.email}/>:null}
         </View>
+                
+        </View>
+        
+        
     )
 }

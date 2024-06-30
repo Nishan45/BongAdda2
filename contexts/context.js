@@ -7,8 +7,8 @@ const NoteState=(props)=>{
         "name":" ",
         "email":"jsjsj",
         "password":"19929",
-        "profImg":"./assets/grey.png",
-        "backgroundImg":"./assets/grey.png",
+        "profImg":"",
+        "backgroundImg":"",
         "discription":"",
         "newnotification":false,
         "about":{
@@ -26,14 +26,18 @@ const NoteState=(props)=>{
         }
     })
     const[change,setChange]=useState(false)
+    const[lang,setLang]=useState('English')
     const update=(val)=>{
         setState(val);
     }
     const Change=(val)=>{
-        setChange(val)
+        setChange(val);
+    }
+    const ChangeLang=(val)=>{
+        setLang(val);
     }
     return(
-        <noteContext.Provider value={{state,update,change,Change}}>
+        <noteContext.Provider value={{state,update,change,Change,lang,ChangeLang}}>
             {props.children}
         </noteContext.Provider>
     )
