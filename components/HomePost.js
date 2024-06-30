@@ -1,4 +1,4 @@
-import { View, Text, Image, StyleSheet, Alert, Share, useWindowDimensions } from 'react-native'
+import { View, Text, Image, StyleSheet, Alert, Share, useWindowDimensions, Platform } from 'react-native'
 import React, { useState, memo, useEffect, useCallback } from 'react'
 import { AntDesign } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
@@ -146,7 +146,7 @@ const HomePost = ({ name, img, profimg, discription, postid, posttime, user_only
         shadowRadius: 1,
        
         transform:[
-          {scale:(hover?1.02:1)}
+          {scale:(hover&&Platform.OS=='web'?1.02:1)}
         ]
       }}
       onPointerEnter={()=>setHover(true)}

@@ -1,4 +1,4 @@
-import { View, Text, Image, StyleSheet, Alert, Share, useWindowDimensions } from 'react-native'
+import { View, Text, Image, StyleSheet, Alert, Share, useWindowDimensions, Platform } from 'react-native'
 import React, { memo, useContext, useState } from 'react'
 import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
@@ -146,7 +146,7 @@ const Story = ({ name, img, title, body, author, type, postid, posttime, user_on
       shadowRadius: 1,
 
       transform: [
-        { scale: (hover ? 1.02 : 1) }
+        { scale: (hover&&Platform.OS=='web'? 1.02 : 1) }
       ]
     }}
     onPointerEnter={()=>setHover(true)}
